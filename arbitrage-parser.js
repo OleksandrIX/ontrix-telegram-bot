@@ -1,5 +1,6 @@
 const fs = require('fs')
 const axios = require('axios')
+const BigDecimal = require('js-big-decimal')
 
 const currenciesName = JSON.parse(fs.readFileSync(__dirname + '/exchanges/Exchanges.json', 'utf-8'))
 const url = 'https://api.kraken.com/0/public/Ticker?pair=BTCUSDT,DOTUSDT,LINKUSDT,USTUSDT,ADAUSDT,DAIUSDT,EOSUSDT,LTCUSDT,XRPUSDT,BCHUSDT,DOGEUSDT,ETHUSDT,USDCUSDT'
@@ -446,14 +447,14 @@ function creatObjectTelegram(buyTicker, sellTicker, spread) {
             buyTicker: {
                 exchange: buyTicker.exchange,
                 nameTicker: buyTicker.name,
-                price: parseFloat(buyTicker.price.buyPrice),
+                price: new BigDecimal(parseFloat(buyTicker.price.buyPrice)).getValue(),
                 linkOnTicker: buyTicker.link,
                 fullNameTicker: buyTicker.description
             },
             sellTicker: {
                 exchange: sellTicker.exchange,
                 nameTicker: sellTicker.name,
-                price: parseFloat(sellTicker.price.sellPrice),
+                price: new BigDecimal(parseFloat(sellTicker.price.sellPrice)).getValue(),
                 linkOnTicker: sellTicker.link,
                 fullNameTicker: sellTicker.description
             }

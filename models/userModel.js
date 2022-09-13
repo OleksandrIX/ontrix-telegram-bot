@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
     },
     isActiveSubscription: {
         type: Boolean,
-        default: false
+        default: true
     },
     createdDate: {
         type: String

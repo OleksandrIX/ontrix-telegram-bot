@@ -55,5 +55,26 @@ bot.action('help', async (ctx) => {
         components.inlineMainMenuKeyboard)
 })
 
+bot.action('min_spread', async (ctx, next) => {
+    try {
+        await ctx.answerCbQuery()
+        await ctx.reply('Введите минимальний спред связок:')
+        await bot.hears(/^[0-9]+$/, (ctx) => {
+            const minSpread = ctx.message.text || 0
+            ctx.session.minSpread = minSpread
+            ctx.arrayTickers = ctx.arrayTickers.filter(ticker => ticker.spreadN >= minSpread)
+            let arr = []
+            let countPages = Math.ceil(ctx.arrayTickers.length / 4)
+            for (let i = 0; i < 4; i++) {
+                arr[i] = ctx.arrayTickers[i]
+            }
+            return ctx.replyWithHTML(components.arbitrageBasicMenuText(arr), components.arbitrageBasicMenuButton(countPages, 1, ctx.session.minSpread || 1), {
+                disable_web_page_preview: true,
+            })
+        })
+    } catch (error) {
+        console.error(`An error has occurred: ${error.message}`)
+    }
+})
 
 module.exports = bot
