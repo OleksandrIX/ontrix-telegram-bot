@@ -24,11 +24,10 @@ async function exmo() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.sell_price, ticker.buy_price, exchange, link, nameLink))
                 }
             }
-            console.log('EXMO completed')
+            // console.log('EXMO completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -50,11 +49,10 @@ async function kucoin() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.buy, ticker.sell, exchange, link, nameLink))
                 }
             }
-            console.log('Kucoin completed')
+            // console.log('Kucoin completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -76,11 +74,10 @@ async function mexc() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.bid, ticker.ask, exchange, link, nameLink))
                 }
             }
-            console.log('MEXC completed')
+            // console.log('MEXC completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -102,11 +99,10 @@ async function whiteBit() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, tickersPromise[key].ticker.ask, tickersPromise[key].ticker.bid, exchange, link, nameLink))
                 }
             }
-            console.log('WhiteBit completed')
+            // console.log('WhiteBit completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -127,11 +123,10 @@ async function huobi() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.ask, ticker.bid, exchange, link, nameLink))
                 }
             }
-            console.log('Huobi completed')
+            // console.log('Huobi completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -162,11 +157,10 @@ async function kraken() {
                     tickers.push(createTicker(name, currency, tickersPromise[key].a[0], tickersPromise[key].b[0], exchange, link, nameLink))
                 }
             }
-            console.log('Kraken completed')
+            // console.log('Kraken completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -188,11 +182,10 @@ async function okx() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.bidPx, ticker.askPx, exchange, link, nameLink))
                 }
             }
-            console.log('OKX completed')
+            // console.log('OKX completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -213,11 +206,10 @@ async function gate() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.highest_bid, ticker.lowest_ask, exchange, link, nameLink))
                 }
             }
-            console.log('Gate.io completed')
+            // console.log('Gate.io completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -241,11 +233,10 @@ async function hitbtc() {
                     }
                 }
             }
-            console.log('HitBTC completed')
+            // console.log('HitBTC completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -266,11 +257,10 @@ async function lbank() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.ticker.latest, ticker.ticker.latest, exchange, link, nameLink))
                 }
             }
-            console.log('Lbank completed')
+            // console.log('Lbank completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -292,11 +282,10 @@ async function ftx() {
                     }
                 }
             }
-            console.log('FTX completed')
+            // console.log('FTX completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -319,11 +308,10 @@ async function bitmart() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.best_bid, ticker.best_ask, exchange, link, nameLink))
                 }
             }
-            console.log('BitMart completed')
+            // console.log('BitMart completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -344,11 +332,10 @@ async function binance() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.bidPrice, ticker.askPrice, exchange, link, nameLink))
                 }
             }
-            console.log('Binance completed')
+            // console.log('Binance completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -370,11 +357,10 @@ async function cointiger() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, tickersPromise[key].highestBid, tickersPromise[key].lowestAsk, exchange, link, nameLink))
                 }
             }
-            console.log('CoinTiger completed')
+            // console.log('CoinTiger completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -399,11 +385,10 @@ async function bybit() {
                     if (name.search(/\d/) === -1) tickers.push(createTicker(name, currency, ticker.bid_price, ticker.ask_price, exchange, link, nameLink))
                 }
             }
-            console.log('Bybit completed')
+            // console.log('Bybit completed')
             resolve(tickers)
         } catch (e) {
             console.error(e)
-            reject(e)
         }
     })
 }
@@ -496,6 +481,7 @@ const startParsingTickers = async () => {
                 }
             }
             arrayTickers = arrayTickers.sort((x, y) => y.spreadN - x.spreadN).filter(el => el?.spreadN < 100)
+            console.log('Parsing complete')
             // console.log(data)
             // console.log(arrayTickers.length)
         })
